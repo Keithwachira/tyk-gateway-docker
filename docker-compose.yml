@@ -1,9 +1,9 @@
-version: '3.3'
+version: '3.9'
 services:
   tyk-gateway:
-    image: docker.tyk.io/tyk-gateway/tyk-gateway:v3.2.1
+    image: docker.tyk.io/tyk-gateway/tyk-gateway:v4.0.3
     ports:
-      - 8080:8080
+      - "8080:8080"
     networks:
       - tyk
     volumes:
@@ -12,15 +12,15 @@ services:
       - ./middleware:/opt/tyk-gateway/middleware
       - ./certs:/opt/tyk-gateway/certs
     environment:
-      - TYK_GW_SECRET=foo
+      - TYK_GW_SECRET=352d20ee67be67f6340b4c0605b044b7
     depends_on:
       - tyk-redis
   tyk-redis:
-    image: redis:5.0-alpine
+    image: redis:6.2.7-alpine
     networks:
       - tyk
     ports:
-      - 6379:6379
+      - "6379:6379"
 
 networks:
   tyk:
