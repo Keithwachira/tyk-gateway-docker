@@ -16,7 +16,7 @@ services:
     depends_on:
       - tyk-redis
   tyk-redis:
-    image: redis:6.2.7-alpine
+    image: redis:6.0.16-alpine
     networks:
       - tyk
     ports:
